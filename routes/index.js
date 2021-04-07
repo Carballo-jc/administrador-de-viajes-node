@@ -1,30 +1,20 @@
 // const express = require('express');
 import express from 'express';
-
+import {
+  pageHome,
+  pageAbout,
+  pageTravels,
+  pageTestimonials,
+} from "../controllers/pegesController.js";
 const router = express.Router();
 
-router.get('/', (req,res) =>{
-    res.render('home',{
-        page: 'Inicio'
-    })
-});
+router.get("/", pageHome);
 
-router.get('/nosotros', (req,res) =>{
-    res.render('about',{
-        page:'Nosotros'
-    })
-});
-router.get('/viajes', (req,res) =>{
-    res.render('travels',{
-        page:'Viajes'
-    })
-});
+router.get("/nosotros", pageAbout);
 
-router.get('/testimoniales', (req,res) =>{
-    res.render('testimonials',{
-        page:'Testimoniales'
-    })
-});
+router.get("/viajes", pageTravels);
+
+router.get("/testimoniales", pageTestimonials);
 
 // module.exports = router;
 export default router;
